@@ -1,6 +1,16 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
+import {GridList, GridTile} from 'material-ui/GridList';
 
+const style = {
+  height: 100,
+  width: 300,
+  margin: 20,
+  textAlign: 'center',
+  display: 'inline-block',
+};
 
 var Article = React.createClass({
   getInitialState() {
@@ -33,12 +43,23 @@ var Article = React.createClass({
      //   });
 
       return (
-         <div>
-           <a href={`articles/${this.props.article.id}`}>{title}</a>
-         {body}
-          <button onClick={this.props.handleDelete}>Delete</button>
-          <button onClick={this.handleEdit}>{this.state.editable ? 'Submit' : 'Edit' } </button>
-          </div>
+        <Card>
+          <CardHeader
+            title={title}
+            subtitle=" CardHeader Subtitle"
+            avatar="http://lorempixel.com/128/128/animals/"/>
+          <CardMedia
+            overlay={<CardTitle title={title} subtitle="Overlay sub " />}
+            >
+            <img src="http://lorempixel.com/600/400/nature/" alt="" />
+          </CardMedia>
+          <CardText>
+            Lorem {body}
+          </CardText>
+          <CardActions>
+             <FlatButton label="Read More" />
+          </CardActions>
+        </Card>
         )
       }
     });
