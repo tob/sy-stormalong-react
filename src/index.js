@@ -1,13 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.sass';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
-import injectTapEventPlugin from 'react-tap-event-plugin'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import { Router, Route, IndexRoute } from 'react-router'
+import store, { history } from './store'
+import registerServiceWorker from './registerServiceWorker'
+import ArticlePage from './components/ArticlePage'
 
-// Needed for onTouchTap
-// http://stackoverflow.com/a/34015469/988941
-injectTapEventPlugin()
+import App from './App'
+import AllArticles from './components/AllArticles'
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+import './index.sass'
+
+ReactDOM.render(
+  <Provider store={store}>
+    <Router history={history}>
+      <Route path="/" component={App}>
+        <IndexRoute component={AllArticles} />
+        <Route path="/articles/:articleId" component={ArticlePage} />
+      </Route>
+    </Router>
+  </Provider>,
+  document.getElementById('root')
+)
+
+registerServiceWorker()

@@ -1,5 +1,5 @@
-import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
+import React, { PureComponent, PropTypes } from 'react'
+import { connect } from 'react-redux'
 import Article from './Article'
 
 
@@ -29,11 +29,9 @@ var AllArticles = React.createClass({
     }
 });
 
-// const mapStateToProps = (articles) => {
-//   return {
-//     articles: articles.articles
-//   }
-// }
 
+const mapStateToProps = ({ articles }) => ({
+  articles
+})
 
-export default AllArticles
+export default connect(mapStateToProps)(AllArticles)

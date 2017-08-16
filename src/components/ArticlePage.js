@@ -1,4 +1,10 @@
-var OneArticle = React.createClass({
+import React, { PureComponent, PropTypes } from 'react'
+import { connect } from 'react-redux'
+
+
+var $ = require('jQuery');
+
+var ArticlePage = React.createClass({
 
   handleDelete(id) {
     $.ajax({
@@ -33,3 +39,5 @@ var OneArticle = React.createClass({
      )
     }
 });
+
+export default ArticlePage
