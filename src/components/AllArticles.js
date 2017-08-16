@@ -32,7 +32,8 @@ class AllArticles extends PureComponent {
   }
 
   render() {
-    var articles= this.props.articles.map((article) => {
+
+     const articles= this.props.articles.map((article) => {
        return (
          <div key={article.id}>
          <Article article={article} /> </div>
