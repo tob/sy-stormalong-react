@@ -1,19 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-
-var $ = require('jQuery');
-
 var ArticlePage = React.createClass({
-
-  handleDelete(id) {
-    $.ajax({
-      url: `/articles/${id}`,
-      type: 'DELETE',
-      success:() => {
-        window.location.replace('/') }
-    });
-  },
 
   onUpdate(article) {
     this.props.onUpdate(article);
