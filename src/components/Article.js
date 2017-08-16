@@ -51,7 +51,7 @@ var Article = React.createClass({
           <CardMedia
             overlay={<CardTitle title={title} subtitle="Overlay sub " />}
             >
-            <img src="http://lorempixel.com/600/400/nature/" alt="" />
+            <img src="https://thumb.ibb.co/bOr3ba/IMG_1009.jpg" alt="" />
           </CardMedia>
           <CardText>
             Lorem {body}

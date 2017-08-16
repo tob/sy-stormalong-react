@@ -4,6 +4,7 @@ import Article from './Article'
 import fetchArticles from '../actions/fetch'
 import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
+import Map from './Map'
 
 const styles = {
   root: {
@@ -41,6 +42,9 @@ class AllArticles extends PureComponent {
 
     return(
       <div  style={styles.root}>
+
+      <Map/>
+
        <GridList
          cellHeight='flex'
          style={styles.gridList}>
