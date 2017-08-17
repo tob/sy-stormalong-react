@@ -25,18 +25,17 @@ const styles = {
 };
 
 class Article extends PureComponent {
-  getInitialState() {
-     return {editable: false}
+  static propTypes = {
+    mediaStyle: PropTypes.object.isRequired
   }
-
    render() {
      console.log(this.props)
-     var { title, body } = this.props.article
+     const { title, body } = this.props.article
 
-     var photo = this.props.article.photos.length < 2 ? "http://lorempixel.com/400/400/sports/" : this.props.article.photos[0].image.url
+     const photo = this.props.article.photos.length < 2 ? "http://lorempixel.com/400/400/sports/" : this.props.article.photos[0].image.url
 
 
-     var featImage = this.props.article.photos.map((photo) => {
+     const featImage = this.props.article.photos.map((photo) => {
        return (
          <div key={photo.id}>
           <img src={photo.image.url} alt=""/>

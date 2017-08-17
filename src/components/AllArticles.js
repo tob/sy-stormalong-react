@@ -34,17 +34,16 @@ class AllArticles extends PureComponent {
 
   render() {
 
-     const articles= this.props.articles.map((article) => {
+     const articles= this.props.articles.map((article, index) => {
        return (
          <Box w={[ 1, 1/2, 1/3]} >
-              <Article article={article} />
+              <Article key={index} article={article} />
          </Box>
        )
      });
 
     return(
       <Flex
-
         wrap
         w={1}
         style={{ height: '100%' }}
