@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import { Router, Route, IndexRoute } from 'react-router'
 import store, { history } from './store'
 import registerServiceWorker from './registerServiceWorker'
-import ArticlePage from './components/ArticlePage'
+import ArtPage from './components/ArtPage'
 
 import App from './App'
 import AllArticles from './components/AllArticles'
@@ -16,7 +16,7 @@ ReactDOM.render(
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={AllArticles} />
-        <Route path="/articles/:articleId" component={ArticlePage} />
+        <Route path="/articles/:articleId" component={ArtPage} />
       </Route>
     </Router>
   </Provider>,
