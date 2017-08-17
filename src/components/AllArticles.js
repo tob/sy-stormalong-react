@@ -4,6 +4,10 @@ import Article from './Article'
 import fetchArticles from '../actions/fetch'
 import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
+import {ReflexProvider, Flex, Box } from 'reflexbox'
+
+const space = [ 0, 6, 12, 18, 24 ]
+const breakpoints = [ 32, 48, 64 ]
 
 const styles = {
   root: {
@@ -19,12 +23,8 @@ const styles = {
 };
 
 class AllArticles extends PureComponent {
-  static propTypes = {
+  static PropTypes = {
     fetchArticles: PropTypes.func.isRequired
-  }
-
-  componentWillMount() {
-    this.props.fetchArticles()
   }
 
   componentWillMount() {
@@ -35,19 +35,22 @@ class AllArticles extends PureComponent {
 
      const articles= this.props.articles.map((article) => {
        return (
-         <div key={article.id}>
-         <Article article={article} /> </div>
+         <Box w={[ 1, 1/2, 1/3]} >
+              <Article article={article} />
+         </Box>
        )
      });
 
     return(
-      <div  style={styles.root}>
-       <GridList
-         cellHeight='flex'
-         style={styles.gridList}>
-         {articles}
-       </GridList>
-     </div>
+      <Flex
+
+        wrap
+        w={1}
+        style={{ height: '100%' }}
+        justify='space-around'
+        >
+             {articles}
+      </Flex>
     )
    }
 }

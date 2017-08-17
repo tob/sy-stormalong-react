@@ -1,16 +1,9 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardActions, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import {GridList, GridTile} from 'material-ui/GridList';
-
-const style = {
-  height: 100,
-  width: 300,
-  margin: 20,
-  textAlign: 'center',
-  display: 'inline-block',
-};
+import { Box } from 'reflexbox'
 
 const styles = {
   root: {
@@ -26,6 +19,9 @@ const styles = {
   titleStyle: {
     color: 'rgb(0, 188, 212)',
   },
+  image:{
+    height: '120px'
+  }
 };
 
 var Article = React.createClass({
@@ -56,7 +52,7 @@ var Article = React.createClass({
      var featImage = this.props.article.photos.map((photo) => {
        return (
          <div key={photo.id}>
-          <img src={photo.image.url} alt="" />
+          <img src={photo.image.url} alt=""/>
          </div>
        )
      })
@@ -72,33 +68,32 @@ var Article = React.createClass({
      //   });
 
       return (
-        <Card>
 
-          <CardMedia
-            overlay={<CardTitle title={title} subtitle="Overlay sub " />}
-            >
-            <img src={photo} alt="" />
-          </CardMedia>
-          <CardText>
-             {body}
-             <div style={styles.root}>
-               <GridList style={styles.gridList} cols={2.2}>
-                 {this.props.article.photos.map((photo) => (
-                   <GridTile
-                     key={photo.id}
-                     title={photo.title}
-                     titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
-                   >
-                     <img src={photo.image.url} />
-                   </GridTile>
-                 ))}
-               </GridList>
-             </div>
-          </CardText>
-          <CardActions>
-             <FlatButton label="Read More" />
-          </CardActions>
-        </Card>
+            <Card>
+              <CardMedia
+                overlay={<CardTitle title={title} subtitle={body} mediaStyle="height:300px, overflow:hidden;"/>}
+                >
+                <img src={photo} alt="" className="cardImageBg"/>
+              </CardMedia>
+              <CardText>
+                 <div style={styles.root}>
+                   <GridList style={styles.gridList} cols={2.2}>
+                     {this.props.article.photos.map((photo) => (
+                       <GridTile
+                         key={photo.id}
+                         title={photo.title}
+                         titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
+                       >
+                         <img src={photo.image.url} alt={photo.image.description} />
+                       </GridTile>
+                     ))}
+                   </GridList>
+                 </div>
+              </CardText>
+              <CardActions>
+                 <FlatButton label="Read More" />
+              </CardActions>
+            </Card>
         )
       }
     });
