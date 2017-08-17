@@ -1,21 +1,23 @@
-import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
+import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import fetchArticles from '../actions/fetch'
 
-class ArticlePage extends PureComponent {
+export class ArticlePage extends PureComponent {
 
   static PropTypes ={
     fetchArticles: PropTypes.func.isRequired
   }
+  // onUpdate(article) {
+  //   this.props.onUpdate(article);
+  // }
 
   componentWillMount(){
-    const { id, fetchArticles } = this.props
-    if (!id) fetchArticles()
+    this.props.fetchArticles()
+    console.log(this.props)
   }
 
+
   render() {
-    console.log('Render', this.props)
 
     const { id, title, body, photos } = this.props
     if (!id) return null
@@ -25,10 +27,10 @@ class ArticlePage extends PureComponent {
           <p>{title}</p>
           <p>{body}</p>
           <div>
-            {photos.map((photo) => {
+            {this.props.photos.map((photo) => {
               return (
                 <div className='images' key={photo.id}>
-                  <img alt='alt-text' src={photo.image.url} />
+                  <img src={photo.image.url} />
                 </div>
                 )
             })}
@@ -39,14 +41,16 @@ class ArticlePage extends PureComponent {
 }
 
 const mapStateToProps = ({ articles },{ params }) => {
+  debugger;
+  console.log(params);
+
   const article = articles.reduce((prev, next) => {
-    if (next.id === params.articleId) {
+    if (next.id === parseInt(params.articleId,10)) {
       return next
     }
     return prev
   }, {})
-  
-  debugger
+
   return {
     ...article
   }
