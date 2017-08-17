@@ -44,7 +44,6 @@ class Article extends PureComponent {
                 <img src={photo} alt="" className="cardImageBg"/>
               </CardMedia>
               <CardText>
-              <Link to={"articles/"+ id}>{ title }</Link>
                  <div style={styles.root}>
                    <GridList style={styles.gridList} cols={2.2}>
                      {this.props.article.photos.map((photo) => (
@@ -60,7 +59,7 @@ class Article extends PureComponent {
                  </div>
               </CardText>
               <CardActions>
-                 <FlatButton label="Read More" />
+                 <FlatButton href={"articles/"+ id} label="Read More" />
               </CardActions>
             </Card>
         )

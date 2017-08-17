@@ -18,7 +18,7 @@ class AllArticles extends PureComponent {
 
   render() {
 
-    const aboutUsArr = this.props.articles.filter((article) => {return article.title == "About us"})
+    const aboutUsArr = this.props.articles.filter((article) => {return article.title === "About us"})
 
     const aboutUs = aboutUsArr.map((article) => {
       return (
