@@ -24,27 +24,14 @@ const styles = {
   }
 };
 
-var Article = React.createClass({
+class Article extends PureComponent {
   getInitialState() {
      return {editable: false}
-  },
-
-  handleEdit() {
-    if(this.state.editable) {
-      var title = this.refs.title.value;
-      var id = this.props.article.id;
-      var body = this.refs.body.value;
-      var article = {id: id , title: title , body: body}; this.props.handleUpdate(article);
-      console.log('in handleEdit', this.state.editable, title, body);
-    }
-
-    this.setState({ editable: !this.state.editable })
-
-   },
+  }
 
    render() {
-     var title = this.state.editable ? <input type='text' ref='title' defaultValue={this.props.article.title} /> : <h3>{this.props.article.title}</h3>;
-     var body = this.state.editable ? <input type='text' ref='body' defaultValue={this.props.article.body} />: <p>{this.props.article.body}</p>;
+     console.log(this.props)
+     var { title, body } = this.props.article
 
      var photo = this.props.article.photos.length < 2 ? "http://lorempixel.com/400/400/sports/" : this.props.article.photos[0].image.url
 
@@ -96,7 +83,7 @@ var Article = React.createClass({
             </Card>
         )
       }
-    });
+}
 
 
 export default Article
