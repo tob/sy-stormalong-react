@@ -17,6 +17,9 @@ class ArticlePage extends PureComponent {
   render() {
     console.log('Render', this.props)
 
+    var CommentBox = require('comment-box').CommentBox
+
+
     const { id, title, body, photos } = this.props
     if (!id) return null
 
@@ -24,6 +27,8 @@ class ArticlePage extends PureComponent {
         <div>
           <p>{title}</p>
           <p>{body}</p>
+          <p>{CommentBox}</p>
+
           <div>
             {photos.map((photo) => {
               return (
@@ -45,7 +50,7 @@ const mapStateToProps = ({ articles },{ params }) => {
     }
     return prev
   }, {})
-  
+
   debugger
   return {
     ...article

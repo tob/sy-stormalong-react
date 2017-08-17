@@ -1,6 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import fetchArticles from '../actions/fetch'
+var ReactDisqusThread = require('react-disqus-thread')
 
 export class ArticlePage extends PureComponent {
 
@@ -22,10 +23,18 @@ export class ArticlePage extends PureComponent {
     const { id, title, body, photos } = this.props
     if (!id) return null
 
+
     return(
         <div>
           <p>{title}</p>
           <p>{body}</p>
+          <ReactDisqusThread
+               shortname="stormalong-1"
+               identifier={id}
+               title={title}
+               url="http://localhost:3001"
+               category_id=""
+               onNewComment={this.handleNewComment}/>
           <div>
             {this.props.photos.map((photo) => {
               return (
@@ -55,5 +64,6 @@ const mapStateToProps = ({ articles },{ params }) => {
     ...article
   }
 }
+
 
 export default connect(mapStateToProps, { fetchArticles })(ArticlePage)
