@@ -1,4 +1,5 @@
-import React, { PureComponent, PropTypes } from 'react'
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Article from './Article'
 import fetchArticles from '../actions/fetch'
@@ -21,10 +22,6 @@ const styles = {
 class AllArticles extends PureComponent {
   static propTypes = {
     fetchArticles: PropTypes.func.isRequired
-  }
-
-  componentWillMount() {
-    this.props.fetchArticles()
   }
 
   componentWillMount() {
