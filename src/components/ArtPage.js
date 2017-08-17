@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import renderHTML from 'react-render-html';
 import fetchArticles from '../actions/fetch'
+var ReactDisqusThread = require('react-disqus-thread')
 
 export class ArticlePage extends PureComponent {
 
@@ -21,6 +22,7 @@ export class ArticlePage extends PureComponent {
     const { id, title, body, photos } = this.props
     if (!id) return null
 
+
     return(
         <div>
           <h2>{title}</h2>
@@ -34,6 +36,13 @@ export class ArticlePage extends PureComponent {
                 )
             })}
           </div>
+          <ReactDisqusThread
+               shortname="stormalong-1"
+               identifier={id}
+               title={title}
+               url="http://localhost:3001"
+               category_id=""
+               onNewComment={this.handleNewComment}/>
         </div>
        )
       }
@@ -54,5 +63,6 @@ const mapStateToProps = ({ articles },{ params }) => {
     ...article
   }
 }
+
 
 export default connect(mapStateToProps, { fetchArticles })(ArticlePage)
