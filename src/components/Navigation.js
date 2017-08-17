@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import AppBar from 'material-ui/AppBar'
 import IconButton from 'material-ui/IconButton'
-import LocalDining from 'material-ui/svg-icons/maps/local-dining'
+import MyLocation from 'material-ui/svg-icons/maps/my-location'
 import FlatButton from 'material-ui/FlatButton'
 
 class Navigation extends PureComponent {
@@ -16,8 +16,8 @@ class Navigation extends PureComponent {
     const { signedIn } = this.props
     return (
       <AppBar
-        title="Recipes"
-        iconElementLeft={<IconButton><LocalDining /></IconButton>}/>
+        title="Stormalong"
+        iconElementLeft={<IconButton><MyLocation /></IconButton>}/>
     )
   }
 

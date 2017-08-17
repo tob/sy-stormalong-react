@@ -12,6 +12,22 @@ const style = {
   display: 'inline-block',
 };
 
+const styles = {
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+  },
+  gridList: {
+    display: 'flex',
+    flexWrap: 'nowrap',
+    overflowX: 'auto',
+  },
+  titleStyle: {
+    color: 'rgb(0, 188, 212)',
+  },
+};
+
 var Article = React.createClass({
   getInitialState() {
      return {editable: false}
@@ -34,6 +50,19 @@ var Article = React.createClass({
      var title = this.state.editable ? <input type='text' ref='title' defaultValue={this.props.article.title} /> : <h3>{this.props.article.title}</h3>;
      var body = this.state.editable ? <input type='text' ref='body' defaultValue={this.props.article.body} />: <p>{this.props.article.body}</p>;
 
+     var photo = this.props.article.photos.length < 2 ? "http://lorempixel.com/400/400/sports/" : this.props.article.photos[0].image.url
+
+
+     var featImage = this.props.article.photos.map((photo) => {
+       return (
+         <div key={photo.id}>
+          <img src={photo.image.url} alt="" />
+         </div>
+       )
+     })
+
+
+
      //  var photos = this.props.article.photos.map((photo) => {
      //     return (
      //       <div key={photo.id}>
@@ -44,17 +73,27 @@ var Article = React.createClass({
 
       return (
         <Card>
-          <CardHeader
-            title={title}
-            subtitle=" CardHeader Subtitle"
-            avatar="http://lorempixel.com/128/128/animals/"/>
+
           <CardMedia
             overlay={<CardTitle title={title} subtitle="Overlay sub " />}
             >
-            <img src="http://lorempixel.com/600/400/nature/" alt="" />
+            <img src={photo} alt="" />
           </CardMedia>
           <CardText>
-            Lorem {body}
+             {body}
+             <div style={styles.root}>
+               <GridList style={styles.gridList} cols={2.2}>
+                 {this.props.article.photos.map((photo) => (
+                   <GridTile
+                     key={photo.id}
+                     title={photo.title}
+                     titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
+                   >
+                     <img src={photo.image.url} />
+                   </GridTile>
+                 ))}
+               </GridList>
+             </div>
           </CardText>
           <CardActions>
              <FlatButton label="Read More" />
