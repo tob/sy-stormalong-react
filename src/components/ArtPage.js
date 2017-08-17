@@ -52,7 +52,6 @@ const mapStateToProps = ({ articles },{ params }) => {
   console.log(params);
 
   const article = articles.reduce((prev, next) => {
-    debugger
     if (next.id === parseInt(params.articleId,10)) {
       return next
     }

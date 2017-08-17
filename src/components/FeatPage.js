@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import renderHTML from 'react-render-html';
 import fetchArticles from '../actions/fetch'
 
 export class ArticlePage extends PureComponent {
@@ -22,7 +23,7 @@ export class ArticlePage extends PureComponent {
     return(
         <div>
           <p>{title}</p>
-          <p>{body}</p>
+          <p>{renderHTML(body)}</p>
           <div>
             {this.props.photos.map((photo) => {
               return (
