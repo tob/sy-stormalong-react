@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import {Card, CardActions, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import {GridList, GridTile} from 'material-ui/GridList';
@@ -24,7 +25,7 @@ const styles = {
 };
 
 class Article extends PureComponent {
-  static propTypes = {
+  static PropTypes = {
     mediaStyle: PropTypes.object.isRequired
   }
 
