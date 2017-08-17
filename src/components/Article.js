@@ -5,6 +5,7 @@ import FlatButton from 'material-ui/FlatButton';
 import {GridList, GridTile} from 'material-ui/GridList';
 import { Box } from 'reflexbox'
 
+
 const styles = {
   root: {
     display: 'flex',
@@ -56,8 +57,6 @@ var Article = React.createClass({
          </div>
        )
      })
-
-
 
      //  var photos = this.props.article.photos.map((photo) => {
      //     return (
