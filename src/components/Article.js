@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import {Card, CardActions, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import {GridList, GridTile} from 'material-ui/GridList';
+import { Link } from 'react-router'
 
 const styles = {
   root: {
@@ -27,6 +28,7 @@ class Article extends PureComponent {
    render() {
      var title = this.props.article.title;
      var date = this.props.article.date;
+     var id = this.props.article.id;
      var photo = this.props.article.photos.length < 2 ? "http://lorempixel.com/400/400/nature/" : this.props.article.photos[0].image.url
 
       return (
@@ -38,6 +40,7 @@ class Article extends PureComponent {
                 <img src={photo} alt="" className="cardImageBg"/>
               </CardMedia>
               <CardText>
+              <Link to={"articles/"+ id}>{ title }</Link>
                  <div style={styles.root}>
                    <GridList style={styles.gridList} cols={2.2}>
                      {this.props.article.photos.map((photo) => (

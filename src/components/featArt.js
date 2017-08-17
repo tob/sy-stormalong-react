@@ -3,6 +3,7 @@ import {Card, CardActions, CardMedia, CardTitle, CardText} from 'material-ui/Car
 import FlatButton from 'material-ui/FlatButton';
 import {GridList, GridTile} from 'material-ui/GridList';
 
+
 const styles = {
   root: {
     display: 'flex',
@@ -28,7 +29,9 @@ class FeatArt extends PureComponent {
      var title = this.props.article.title;
      var date = this.props.article.date;
      var body = this.props.article.body;
-     var photo = this.props.article.photos.length < 2 ? "http://lorempixel.com/400/400/nature/" : this.props.article.photos[0].image.url
+     var photo = this.props.article.photos.length < 1 ? "http://lorempixel.com/400/400/nature/" : this.props.article.photos[0].image.url
+
+     if (!body) return null
 
       return (
 
@@ -39,7 +42,6 @@ class FeatArt extends PureComponent {
                 <img src={photo} alt="" className="cardImageBg"/>
               </CardMedia>
               <CardText>
-              {body}
                  <div style={styles.root}>
                    <GridList style={styles.gridList} cols={2.2}>
                      {this.props.article.photos.map((photo) => (

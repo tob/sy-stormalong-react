@@ -12,7 +12,7 @@ export class ArticlePage extends PureComponent {
   // }
 
   componentWillMount(){
-    fetchArticles()
+    this.props.fetchArticles()
     console.log(this.props)
   }
 
@@ -42,9 +42,10 @@ export class ArticlePage extends PureComponent {
 
 const mapStateToProps = ({ articles },{ params }) => {
   debugger;
+  console.log(params);
 
   const article = articles.reduce((prev, next) => {
-    if (next.id === params.articleId) {
+    if (next.id === parseInt(params.articleId,10)) {
       return next
     }
     return prev
