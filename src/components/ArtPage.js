@@ -1,5 +1,7 @@
-import React, { PureComponent, PropTypes } from 'react'
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import renderHTML from 'react-render-html';
 import fetchArticles from '../actions/fetch'
 
 export class ArticlePage extends PureComponent {
@@ -7,9 +9,6 @@ export class ArticlePage extends PureComponent {
   static PropTypes ={
     fetchArticles: PropTypes.func.isRequired
   }
-  // onUpdate(article) {
-  //   this.props.onUpdate(article);
-  // }
 
   componentWillMount(){
     this.props.fetchArticles()
@@ -24,13 +23,13 @@ export class ArticlePage extends PureComponent {
 
     return(
         <div>
-          <p>{title}</p>
-          <p>{body}</p>
+          <h2>{title}</h2>
+          {renderHTML(body)}
           <div>
             {this.props.photos.map((photo) => {
               return (
                 <div className='images' key={photo.id}>
-                  <img src={photo.image.url} />
+                  <img alt={ photo.description } src={photo.image.url} />
                 </div>
                 )
             })}
@@ -41,7 +40,6 @@ export class ArticlePage extends PureComponent {
 }
 
 const mapStateToProps = ({ articles },{ params }) => {
-  debugger;
   console.log(params);
 
   const article = articles.reduce((prev, next) => {
