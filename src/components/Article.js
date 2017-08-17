@@ -24,6 +24,9 @@ const styles = {
 };
 
 class Article extends PureComponent {
+  static propTypes = {
+    mediaStyle: PropTypes.object.isRequired
+  }
 
    render() {
      var title = this.props.article.title;
