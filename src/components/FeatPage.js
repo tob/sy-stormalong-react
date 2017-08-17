@@ -1,9 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import renderHTML from 'react-render-html';
 import fetchArticles from '../actions/fetch'
-var ReactDisqusThread = require('react-disqus-thread')
 
 export class ArticlePage extends PureComponent {
 
@@ -11,49 +9,42 @@ export class ArticlePage extends PureComponent {
     fetchArticles: PropTypes.func.isRequired
   }
 
+
   componentWillMount(){
     this.props.fetchArticles()
-    console.log(this.props)
   }
 
 
   render() {
-
-    const { id, title, body, photos } = this.props
+    const { id, title, body } = this.props
     if (!id) return null
-
 
     return(
         <div>
-          <h2>{title}</h2>
-          {renderHTML(body)}
+          <p>{title}</p>
+          <p>{body}</p>
           <div>
             {this.props.photos.map((photo) => {
               return (
                 <div className='images' key={photo.id}>
-                  <img alt={ photo.description } src={photo.image.url} />
+                  <img src={photo.image.url} alt={photo.image.description} />
                 </div>
                 )
             })}
           </div>
-          <ReactDisqusThread
-               shortname="stormalong-1"
-               identifier={id}
-               title={title}
-               url="http://localhost:3001"
-               category_id=""
-               onNewComment={this.handleNewComment}/>
         </div>
        )
       }
 }
 
-const mapStateToProps = ({ articles },{ params }) => {
-  console.log(params);
+
+
+const mapStateToProps = ({ articles }) => {
+
+
 
   const article = articles.reduce((prev, next) => {
-    debugger
-    if (next.id === parseInt(params.articleId,10)) {
+    if (next.title === "About us") {
       return next
     }
     return prev
@@ -63,6 +54,5 @@ const mapStateToProps = ({ articles },{ params }) => {
     ...article
   }
 }
-
 
 export default connect(mapStateToProps, { fetchArticles })(ArticlePage)

@@ -4,6 +4,7 @@ import {Card, CardActions, CardMedia, CardTitle, CardText} from 'material-ui/Car
 import FlatButton from 'material-ui/FlatButton';
 import {GridList, GridTile} from 'material-ui/GridList';
 import { Link } from 'react-router'
+import { history } from '../store'
 
 const styles = {
   root: {
@@ -29,10 +30,14 @@ class Article extends PureComponent {
     mediaStyle: PropTypes.object.isRequired
   }
 
+  goToArtPage(id) {
+    history.push( `/articles/${id}` )
+  }
+
    render() {
      var title = this.props.article.title;
      var date = this.props.article.date;
-     var id = this.props.article.id;
+     const id = this.props.article.id;
      var photo = this.props.article.photos.length < 2 ? "http://lorempixel.com/400/400/nature/" : this.props.article.photos[0].image.url
 
       return (
@@ -44,7 +49,6 @@ class Article extends PureComponent {
                 <img src={photo} alt="" className="cardImageBg"/>
               </CardMedia>
               <CardText>
-              <Link to={"articles/"+ id}>{ title }</Link>
                  <div style={styles.root}>
                    <GridList style={styles.gridList} cols={2.2}>
                      {this.props.article.photos.map((photo) => (
@@ -60,7 +64,7 @@ class Article extends PureComponent {
                  </div>
               </CardText>
               <CardActions>
-                 <FlatButton label="Read More" />
+                 <FlatButton href={"articles/"+ id} label="Read More" />
               </CardActions>
             </Card>
         )
