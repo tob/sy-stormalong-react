@@ -23,6 +23,14 @@ class App extends Component {
     this.props.fetchArticles()
   }
 
+  findFeatArticle(artTitle) {
+    const { articles } = this.props
+    const featArticle = articles.reduce((prev, next) => {
+    if (next.title === artTitle) { return next }
+    return prev }, {})
+    return featArticle
+  }
+
   render() {
 
       return (
@@ -30,19 +38,17 @@ class App extends Component {
           <div className="App">
             <Navigation title="Stormalong"/>
             { this.props.children }
-
+            <Map/>
             <Flex
               wrap
               w={1}
               style={{ height: '100%' }}
               justify='space-around' >
-                <Box w={[ 1, 1/2, 1/3]} >
-                <h1>About Us</h1>
-                <FeatPage artTitle="About us"/>
+                <Box w={[ 1, 1/2, 1/2]} >
+                <FeatPage article={ this.findFeatArticle('About us') } />
                 </Box>
-                <Box w={[ 1, 1/2, 1/3]} >
-                <h1>The Ship</h1>
-                <Map/>
+                <Box w={[ 1, 1/2, 1/2]} >
+                <FeatPage article={ this.findFeatArticle('Over het schip') } />
                 </Box>
               </Flex>
           </div>
