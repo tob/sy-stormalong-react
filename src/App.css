@@ -28,3 +28,11 @@
   height: 300px;
   object-fit: cover;
 }
+
+.map-container iframe{
+	pointer-events: none;
+}
+
+.map-container iframe.clicked{
+	pointer-events: auto;
+}
