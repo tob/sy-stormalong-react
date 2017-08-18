@@ -5,11 +5,16 @@ import { Router, Route, IndexRoute } from 'react-router'
 import store, { history } from './store'
 import registerServiceWorker from './registerServiceWorker'
 import ArtPage from './components/ArtPage'
-
+import injectTapEventPlugin from 'react-tap-event-plugin'
 import App from './App'
 import AllArticles from './components/AllArticles'
 
 import './index.sass'
+
+// Needed for onTouchTap
+// http://stackoverflow.com/a/34015469/988941
+injectTapEventPlugin()
+
 
 ReactDOM.render(
   <Provider store={store}>

@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Article from './Article'
-import FeatArt from './featArt'
 import fetchArticles from '../actions/fetch'
 import {Flex, Box } from 'reflexbox'
 
@@ -11,24 +10,24 @@ class AllArticles extends PureComponent {
     fetchArticles: PropTypes.func.isRequired
   }
 
-  componentWillMount() {
-    this.props.fetchArticles()
-  }
+  // componentWillMount() {
+  //   this.props.fetchArticles()
+  // }
 
 
   render() {
 
-    const aboutUsArr = this.props.articles.filter((article) => {return article.title === "About us"})
-
-    const aboutUs = aboutUsArr.map((article) => {
-      return (
-             <FeatArt article={article} />
-      )
-    });
+    // const aboutUsArr = this.props.articles.filter((article) => {return article.title === "About us"})
+    //
+    // const aboutUs = aboutUsArr.map((article) => {
+    //   return (
+    //          <FeatArt article={article} />
+    //   )
+    // });
 
      const articles = this.props.articles.map((article, index) => {
        return (
-         <Box w={[ 1, 1/2, 1/3]} >
+         <Box key={index} w={[ 1, 1/2, 1/3]} >
               <Article key={index} article={article} />
          </Box>
        )
@@ -36,7 +35,6 @@ class AllArticles extends PureComponent {
 
     return(
       <div>
-      {aboutUs}
         <Flex
           wrap
           w={1}

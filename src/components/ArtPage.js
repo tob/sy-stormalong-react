@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import renderHTML from 'react-render-html';
-import fetchArticles from '../actions/fetch'
 import { Flex, Box } from 'reflexbox'
 import Gallery from './_gallery'
 
@@ -36,7 +35,7 @@ export class ArticlePage extends PureComponent {
   }
 
   componentWillMount(){
-    this.props.fetchArticles()
+    // this.props.fetchArticles()
     console.log(this.props)
   }
 
@@ -106,4 +105,4 @@ const mapStateToProps = ({ articles },{ params }) => {
 }
 
 
-export default connect(mapStateToProps, { fetchArticles })(ArticlePage)
+export default connect(mapStateToProps)(ArticlePage)
