@@ -25,7 +25,7 @@ class App extends Component {
           <div className="App">
             <Navigation title="Stormalong"/>
             { this.props.children }
-            <Map/>
+
             <Flex
               wrap
               w={1}
@@ -37,7 +37,7 @@ class App extends Component {
                 </Box>
                 <Box w={[ 1, 1/2, 1/3]} >
                 <h1>The Ship</h1>
-
+                <Map/>
                 </Box>
               </Flex>
           </div>
