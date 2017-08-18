@@ -7,7 +7,7 @@ class Map extends PureComponent {
 
     return (
       <Card>
-      <iframe src="https://www.google.com/maps/d/u/2/embed?mid=15GH1TZoGMDVAMyHgr3TaBzfMiUA" width="1000" height="600" border="0"></iframe>
+      <iframe title="map" src="https://www.google.com/maps/d/u/2/embed?mid=15GH1TZoGMDVAMyHgr3TaBzfMiUA" width="1000" height="600"></iframe>
       </Card>
     )
   }
