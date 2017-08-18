@@ -28,3 +28,8 @@
   height: 300px;
   object-fit: cover;
 }
+
+.featHomeImage   {
+  height: 500px;
+  object-fit: cover;
+}
