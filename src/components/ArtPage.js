@@ -72,7 +72,7 @@ export class ArticlePage extends PureComponent {
 
                 <ReactDisqusThread
                      shortname="stormalong-1"
-                     identifier={id}
+                     identifier=""
                      title={title}
                      url={'http://localhost:3001/articles/'+ id }
                      category_id=""
