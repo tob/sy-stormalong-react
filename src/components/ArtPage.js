@@ -61,7 +61,7 @@ export class ArticlePage extends PureComponent {
               <Box w={[ 1, 1/2, 1/2]} p={2}
               m={1} >
 
-                <Gallery images={this.props.photos} />
+                <Gallery images={photos} />
 
               </Box>
               <Box w={[ 1, 1/2, 1/2]} >
@@ -75,7 +75,7 @@ export class ArticlePage extends PureComponent {
                      shortname="stormalong-1"
                      identifier=""
                      title={title}
-                     url={'http://localhost:3001/articles/'+ id }
+                     url={'https://sy-stormalong.herokuapp.com/articles/'+ id }
                      category_id=""
                      onNewComment={this.handleNewComment}/>
                   </GridList>
