@@ -24,22 +24,9 @@ class App extends Component {
         <MuiThemeProvider muiTheme={muiTheme}>
           <div className="App">
             <Navigation title="Stormalong"/>
-            { this.props.children }
             <Map/>
-            <Flex
-              wrap
-              w={1}
-              style={{ height: '100%' }}
-              justify='space-around' >
-                <Box w={[ 1, 1/2, 1/3]} >
-                <h1>About Us</h1>
-                <FeatPage artTitle="About us"/>
-                </Box>
-                <Box w={[ 1, 1/2, 1/3]} >
-                <h1>The Ship</h1>
+            { this.props.children }
 
-                </Box>
-              </Flex>
           </div>
         </MuiThemeProvider>
       )

@@ -41,9 +41,6 @@ export class ArticlePage extends PureComponent {
 
 
 const mapStateToProps = ({ articles }) => {
-
-
-
   const article = articles.reduce((prev, next) => {
     if (next.title === "About us") {
       return next
