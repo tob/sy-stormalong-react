@@ -15,7 +15,7 @@ export class ArticlePage extends PureComponent {
 
 
   componentWillMount(){
-    this.props.fetchArticles()
+    // this.props.fetchArticles()
   }
 
   // readMore() {
@@ -44,7 +44,7 @@ export class ArticlePage extends PureComponent {
 const mapStateToProps = ({ articles }) => {
 
   const aboutUs = "About us"
-debugger
+
   const article = articles.reduce((prev, next) => {
     if (next.title === aboutUs) {
       return next

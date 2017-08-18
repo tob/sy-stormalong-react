@@ -4,7 +4,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import muiTheme from './assets/styles/theme';
 import Navigation from './components/Navigation'
 import Map from './components/Map'
-
+import { connect } from 'react-redux'
+import fetchArticles from './actions/fetch'
 import FeatPage from './components/FeatPage'
 import { Flex, Box } from 'reflexbox'
 import './App.css'
@@ -16,6 +17,10 @@ class App extends Component {
 
   getChildContext() {
     return { muiTheme }
+  }
+
+  componentWillMount() {
+    this.props.fetchArticles()
   }
 
   render() {
@@ -46,6 +51,8 @@ class App extends Component {
     }
 }
 
+const mapStateToProps = ({ articles }) => ({
+  articles
+})
 
-
-export default App
+export default connect(mapStateToProps, { fetchArticles })(App)
