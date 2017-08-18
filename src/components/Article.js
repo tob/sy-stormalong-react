@@ -1,10 +1,9 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import {Card, CardActions, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardActions, CardMedia, CardTitle} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
-import {GridList, GridTile} from 'material-ui/GridList';
-import { Link } from 'react-router'
-import { history } from '../store'
+
+import { replace } from 'react-router-redux'
 
 const styles = {
   root: {
@@ -31,7 +30,7 @@ class Article extends PureComponent {
   }
 
   goToArtPage(id) {
-    history.push( `/articles/${id}` )
+    replace( `/articles/${id}` )
   }
 
    render() {
@@ -48,23 +47,10 @@ class Article extends PureComponent {
                 >
                 <img src={photo} alt="" className="cardImageBg"/>
               </CardMedia>
-              <CardText>
-                 <div style={styles.root}>
-                   <GridList style={styles.gridList} cols={2.2}>
-                     {this.props.article.photos.map((photo) => (
-                       <GridTile
-                         key={photo.id}
-                         title={photo.title}
-                         titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
-                       >
-                         <img src={photo.image.url} alt={photo.image.description} />
-                       </GridTile>
-                     ))}
-                   </GridList>
-                 </div>
-              </CardText>
               <CardActions>
-                 <FlatButton href={"articles/"+ id} label="Read More" />
+                 <FlatButton
+                 href={'/articles/'+id}
+                 label="Read More" />
               </CardActions>
             </Card>
         )

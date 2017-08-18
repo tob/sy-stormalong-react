@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import renderHTML from 'react-render-html';
 import fetchArticles from '../actions/fetch'
+import Gallery from './_gallery'
 
 export class ArticlePage extends PureComponent {
 
@@ -30,13 +31,9 @@ export class ArticlePage extends PureComponent {
         <p>{title}</p>
         <p>{renderHTML(body)}</p>
         <div>
-          {this.props.photos.map((photo) => {
-            return (
-              <div className='images' key={photo.id}>
-                <img src={photo.image.url} alt={photo.image.description} />
-              </div>
-              )
-          })}
+          <Gallery images={this.props.photos} />
+
+
         </div>
       </div>
      )

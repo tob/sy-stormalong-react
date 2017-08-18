@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import renderHTML from 'react-render-html';
 import fetchArticles from '../actions/fetch'
 import { Flex, Box } from 'reflexbox'
+import Gallery from './_gallery'
 
 import {GridList, GridTile} from 'material-ui/GridList';
 
@@ -60,21 +61,8 @@ export class ArticlePage extends PureComponent {
             align='center' >
               <Box w={[ 1, 1/2, 1/2]} p={2}
               m={1} >
-                <GridList
-                  cellHeight={200}
-                  style={styles.gridList}  >
-                  {this.props.photos.map((photo) => (
-                    <GridTile
-                      key={photo.id}
-                      cols={photo.featured ? 2 : 1}
-                      rows={photo.featured ? 2 : 1}
-                      title={photo.title}
-                      titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
-                    >
-                      <img src={photo.image.url} alt={photo.image.description} />
-                    </GridTile>
-                  ))}
-                </GridList>
+
+                <Gallery images={this.props.photos} />
               </Box>
               <Box w={[ 1, 1/2, 1/2]} >
                 <GridList
@@ -87,7 +75,7 @@ export class ArticlePage extends PureComponent {
                      shortname="stormalong-1"
                      identifier={id}
                      title={title}
-                     url="http://localhost:3001"
+                     url={'http://localhost:3001/articles/'+ id }
                      category_id=""
                      onNewComment={this.handleNewComment}/>
                   </GridList>
