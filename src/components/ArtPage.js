@@ -5,7 +5,7 @@ import renderHTML from 'react-render-html';
 import fetchArticles from '../actions/fetch'
 var ReactDisqusThread = require('react-disqus-thread')
 
-export class ArticlePage extends PureComponent {
+export class ArtPage extends PureComponent {
 
   static PropTypes ={
     fetchArticles: PropTypes.func.isRequired
@@ -28,7 +28,7 @@ export class ArticlePage extends PureComponent {
           <h2>{title}</h2>
           {renderHTML(body)}
           <div>
-            {this.props.photos.map((photo) => {
+            {photos.map((photo) => {
               return (
                 <div className='images' key={photo.id}>
                   <img alt={ photo.description } src={photo.image.url} />
@@ -64,4 +64,4 @@ const mapStateToProps = ({ articles },{ params }) => {
 }
 
 
-export default connect(mapStateToProps, { fetchArticles })(ArticlePage)
+export default connect(mapStateToProps, { fetchArticles })(ArtPage)

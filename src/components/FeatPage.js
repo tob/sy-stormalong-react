@@ -1,31 +1,32 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import renderHTML from 'react-render-html';
-import fetchArticles from '../actions/fetch'
 
-export class ArticlePage extends PureComponent {
+export class FeatPage extends PureComponent {
 
   static PropTypes ={
     fetchArticles: PropTypes.func.isRequired
   }
 
-
   componentWillMount(){
-    this.props.fetchArticles()
+    const { artTitle } = this.props
+    console.log(artTitle)
   }
 
-
   render() {
-    const { id, title, body } = this.props
-    if (!id) return null
+    debugger
+    const featArticle = this.props.articles.reduce((prev, next) => {
+      if (next.id === this.props.artTitle) { return next }
+      return prev }, {})
+
+    // if (!id) return null
 
     return(
         <div>
-          <p>{title}</p>
-          <p>{renderHTML(body)}</p>
+          <p>{featArticle.title}</p>
+          <p>{renderHTML(featArticle.body)}</p>
           <div>
-            {this.props.photos.map((photo) => {
+            {featArticle.photos.map((photo) => {
               return (
                 <div className='images' key={photo.id}>
                   <img src={photo.image.url} alt={photo.image.description} />
@@ -39,21 +40,4 @@ export class ArticlePage extends PureComponent {
 }
 
 
-
-const mapStateToProps = ({ articles }) => {
-
-
-
-  const article = articles.reduce((prev, next) => {
-    if (next.title === "About us") {
-      return next
-    }
-    return prev
-  }, {})
-
-  return {
-    ...article
-  }
-}
-
-export default connect(mapStateToProps, { fetchArticles })(ArticlePage)
+export default FeatPage

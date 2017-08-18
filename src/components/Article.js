@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {Card, CardActions, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import {GridList, GridTile} from 'material-ui/GridList';
-import { Link } from 'react-router'
+// import { Link } from 'react-router'
 import { history } from '../store'
 
 const styles = {

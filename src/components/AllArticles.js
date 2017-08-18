@@ -7,7 +7,7 @@ import fetchArticles from '../actions/fetch'
 import {Flex, Box } from 'reflexbox'
 
 class AllArticles extends PureComponent {
-  static PropTypes = {
+  static propTypes = {
     fetchArticles: PropTypes.func.isRequired
   }
 
@@ -17,7 +17,7 @@ class AllArticles extends PureComponent {
 
 
   render() {
-
+    debugger
     const aboutUsArr = this.props.articles.filter((article) => {return article.title === "About us"})
 
     const aboutUs = aboutUsArr.map((article) => {
