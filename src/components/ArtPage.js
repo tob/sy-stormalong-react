@@ -62,6 +62,7 @@ export class ArticlePage extends PureComponent {
               m={1} >
 
                 <Gallery images={this.props.photos} />
+
               </Box>
               <Box w={[ 1, 1/2, 1/2]} >
                 <GridList
