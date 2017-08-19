@@ -43,6 +43,7 @@ class MapContainer extends PureComponent {
     const articles = this.props.articles.map((article, index) => {
 
 
+
       return (
 
         <Marker key={index} onClick={this.onMarkerClick}
@@ -52,10 +53,10 @@ class MapContainer extends PureComponent {
     });
 
 
-    debugger
     if (!this.props.loaded) {
-      return <Card>
-      <iframe src="https://www.google.com/maps/d/u/2/embed?mid=15GH1TZoGMDVAMyHgr3TaBzfMiUA" title="backup map" width="100%" height="600" border="0"></iframe>
+      return 
+      <Card>
+        <iframe title='main-map' src="https://www.google.com/maps/d/u/2/embed?mid=15GH1TZoGMDVAMyHgr3TaBzfMiUA" width="100%" height="600" border="0"></iframe>
       </Card>
     }
     return (

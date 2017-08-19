@@ -6,24 +6,24 @@ import { Link } from 'react-router'
 
 import { replace } from 'react-router-redux'
 
-const styles = {
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-  },
-  gridList: {
-    display: 'flex',
-    flexWrap: 'nowrap',
-    overflowX: 'auto',
-  },
-  titleStyle: {
-    color: 'rgb(0, 188, 212)',
-  },
-  image:{
-    height: '120px'
-  }
-};
+// const styles = {
+//   root: {
+//     display: 'flex',
+//     flexWrap: 'wrap',
+//     justifyContent: 'space-around',
+//   },
+//   gridList: {
+//     display: 'flex',
+//     flexWrap: 'nowrap',
+//     overflowX: 'auto',
+//   },
+//   titleStyle: {
+//     color: 'rgb(0, 188, 212)',
+//   },
+//   image:{
+//     height: '120px'
+//   }
+// };
 
 class Article extends PureComponent {
   static PropTypes = {
@@ -38,7 +38,7 @@ class Article extends PureComponent {
      var title = this.props.article.title;
      var date = this.props.article.date;
      const id = this.props.article.id;
-     var photo = this.props.article.photos.length < 1 ? "http://lorempixel.com/400/400/nature/" : this.props.article.photos[0].image.url
+     var photo = this.props.article.photos.length < 1 ? "http://lorempixel.com/400/400/nature/" : this.props.article.photos[0].src
 
       return (
 
