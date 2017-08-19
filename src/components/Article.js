@@ -44,7 +44,7 @@ class Article extends PureComponent {
 
             <Card>
               <CardMedia
-                overlay={<CardTitle title={title} subtitle={date} mediaStyle="height:300px, overflow:hidden;"/>}
+                overlay={<CardTitle title={title} subtitle={date} />}
                 >
                 <img src={photo} alt="" className="cardImageBg"/>
               </CardMedia>
