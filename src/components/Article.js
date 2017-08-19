@@ -38,7 +38,7 @@ class Article extends PureComponent {
      var title = this.props.article.title;
      var date = this.props.article.date;
      const id = this.props.article.id;
-     var photo = this.props.article.photos.length < 1 ? "http://lorempixel.com/400/400/nature/" : this.props.article.photos[0].image.url
+     var photo = this.props.article.photos.length < 1 ? "http://lorempixel.com/400/400/nature/" : this.props.article.photos[0].src
 
       return (
 
