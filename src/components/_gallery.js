@@ -31,7 +31,7 @@ export class Gallery extends PureComponent {
 
 
   handleToggle(photo) {
-    console.log('inside handletoggle', photo.featured, photo);
+    // console.log('inside handletoggle', photo.featured, photo);
     photo.featured = !photo.featured
     this.forceUpdate()
   };
