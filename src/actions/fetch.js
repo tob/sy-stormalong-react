@@ -3,7 +3,7 @@ import request from 'superagent'
 
 export const FETCHED_ARTICLES = 'FETCHED_ARTICLES'
 
-const RAILS_HOST = 'http://localhost:3000'
+const RAILS_HOST = 'https://stormalong.herokuapp.com/api'
 
 export default () => {
   return (dispatch) => {request.get(RAILS_HOST + '/articles.json')
