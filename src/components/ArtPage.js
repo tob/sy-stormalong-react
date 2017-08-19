@@ -4,8 +4,7 @@ import { connect } from 'react-redux'
 import renderHTML from 'react-render-html';
 import { Flex, Box } from 'reflexbox'
 import Gallery from './_gallery'
-
-import {GridList, GridTile} from 'material-ui/GridList';
+import {GridList} from 'material-ui/GridList';
 
 const styles = {
   root: {
