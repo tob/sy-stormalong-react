@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import {Card, CardActions, CardMedia, CardTitle} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
+import { Link } from 'react-router'
 
 import { replace } from 'react-router-redux'
 
@@ -49,8 +50,7 @@ class Article extends PureComponent {
               </CardMedia>
               <CardActions>
                  <FlatButton
-                 href={'/articles/'+id}
-                 label="Read More" />
+                 label={<Link to={'/articles/'+id}>Read more</Link>} />
               </CardActions>
             </Card>
         )
