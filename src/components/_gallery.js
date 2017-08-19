@@ -1,13 +1,5 @@
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
-
 import {GridList, GridTile} from 'material-ui/GridList';
-import Image from 'material-ui-image'
-// import Lightbox from 'react-lightbox-component'
-
-
-var Lightbox = require('react-lightbox-component').Lightbox;
-
 
 const styles = {
   root: {
@@ -29,7 +21,6 @@ const styles = {
 
 export class Gallery extends PureComponent {
 
-
   handleToggle(photo) {
     // console.log('inside handletoggle', photo.featured, photo);
     photo.featured = !photo.featured
@@ -46,7 +37,6 @@ render() {
       style={styles.gridList}  >
       {this.props.images.map((photo) => (
 
-
         <GridTile
           key={photo.id}
           cols={photo.featured ? 2 : 1}
@@ -55,7 +45,7 @@ render() {
           onTouchTap={this.handleToggle.bind(this, photo)}
           subtitle={<span>by <b>TEST</b></span>}
         >
-          <img src={photo.image.url} alt={photo.image.description} />
+          <img src={photo.src} alt={photo.image.description} />
         </GridTile>
 
       ))}

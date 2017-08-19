@@ -6,24 +6,24 @@ import { Link } from 'react-router'
 
 import { replace } from 'react-router-redux'
 
-const styles = {
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-  },
-  gridList: {
-    display: 'flex',
-    flexWrap: 'nowrap',
-    overflowX: 'auto',
-  },
-  titleStyle: {
-    color: 'rgb(0, 188, 212)',
-  },
-  image:{
-    height: '120px'
-  }
-};
+// const styles = {
+//   root: {
+//     display: 'flex',
+//     flexWrap: 'wrap',
+//     justifyContent: 'space-around',
+//   },
+//   gridList: {
+//     display: 'flex',
+//     flexWrap: 'nowrap',
+//     overflowX: 'auto',
+//   },
+//   titleStyle: {
+//     color: 'rgb(0, 188, 212)',
+//   },
+//   image:{
+//     height: '120px'
+//   }
+// };
 
 class Article extends PureComponent {
   static PropTypes = {
