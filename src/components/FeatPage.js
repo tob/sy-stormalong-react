@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import renderHTML from 'react-render-html';
 import Gallery from './_gallery'
 
-export class ArticlePage extends PureComponent {
+export class FeatPage extends PureComponent {
 
   componentWillMount(){
     // this.props.fetchArticles()
@@ -19,11 +19,9 @@ export class ArticlePage extends PureComponent {
     return(
       <div>
         <p>{title}</p>
-        <p>{renderHTML(body)}</p>
+        {renderHTML(body)}
         <div>
           <Gallery images={photos} />
-
-
         </div>
       </div>
      )
@@ -47,4 +45,4 @@ export class ArticlePage extends PureComponent {
 //   }
 // }
 
-export default ArticlePage
+export default FeatPage

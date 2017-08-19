@@ -1,9 +1,6 @@
 import React, { PureComponent } from 'react'
 import {Card,} from 'material-ui/Card';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-import Article from './Article';
-
-
 
 class MapContainer extends PureComponent {
   constructor(props) {
@@ -36,13 +33,8 @@ class MapContainer extends PureComponent {
     }
   }
 
-
-
-
   render() {
     const articles = this.props.articles.map((article, index) => {
-
-
 
       return (
 
@@ -52,21 +44,19 @@ class MapContainer extends PureComponent {
       )
     });
 
-
     if (!this.props.loaded) {
-      return 
+      return (
       <Card>
-        <iframe title='main-map' src="https://www.google.com/maps/d/u/2/embed?mid=15GH1TZoGMDVAMyHgr3TaBzfMiUA" width="100%" height="600" border="0"></iframe>
+        <iframe title='main-map' src="https://www.google.com/maps/d/u/2/embed?mid=15GH1TZoGMDVAMyHgr3TaBzfMiUA" width="100%" height="600"></iframe>
       </Card>
+      )
     }
     return (
       <Map google={this.props.google}
           onClick={this.onMapClicked}
           zoom={3}
           >
-
           {articles}
-
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}>
