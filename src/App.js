@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import muiTheme from './assets/styles/theme';
 import Navigation from './components/Navigation'
-import Map from './components/Map'
+import MapContainer from './components/Map'
 import { connect } from 'react-redux'
 import fetchArticles from './actions/fetch'
 import FeatPage from './components/FeatPage'
@@ -31,14 +31,22 @@ class App extends Component {
     return featArticle
   }
 
-  render() {
+  currentArticle(articleId) {
+    const { articles } = this.props
+    const article = articles.reduce((prev, next) => {
+    if (next.id === articleId) { return next }
+    return prev }, {})
+    return article
+  }
 
+  render() {
+    const { articles } = this.props
       return (
         <MuiThemeProvider muiTheme={muiTheme}>
           <div className="App">
             <Navigation title="Stormalong"/>
             { this.props.children }
-            <Map/>
+            <MapContainer articles={ articles }/>
             <Flex
               wrap
               w={1}
