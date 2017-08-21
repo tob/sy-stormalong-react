@@ -6,24 +6,6 @@ import { Link } from 'react-router'
 
 import { replace } from 'react-router-redux'
 
-// const styles = {
-//   root: {
-//     display: 'flex',
-//     flexWrap: 'wrap',
-//     justifyContent: 'space-around',
-//   },
-//   gridList: {
-//     display: 'flex',
-//     flexWrap: 'nowrap',
-//     overflowX: 'auto',
-//   },
-//   titleStyle: {
-//     color: 'rgb(0, 188, 212)',
-//   },
-//   image:{
-//     height: '120px'
-//   }
-// };
 
 class Article extends PureComponent {
   static PropTypes = {
@@ -42,16 +24,15 @@ class Article extends PureComponent {
 
       return (
 
-            <Card>
+            <Card >
               <CardMedia
-                overlay={<CardTitle title={title} subtitle={date} />}
+                overlay={<CardTitle title={<FlatButton backgroundColor="#43e8c2"
+                overlayStyle="background: red"
+                label={<Link to={'/articles/'+id}>{title}</Link>} />} subtitle={date} />}
                 >
                 <img src={photo} alt="" className="cardImageBg"/>
               </CardMedia>
-              <CardActions>
-                 <FlatButton
-                 label={<Link to={'/articles/'+id}>Read more</Link>} />
-              </CardActions>
+
             </Card>
         )
       }

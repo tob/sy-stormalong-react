@@ -33,3 +33,13 @@
   height: 500px;
   object-fit: cover;
 }
+
+span a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.navbarLogo {
+ width: 65px
+}
