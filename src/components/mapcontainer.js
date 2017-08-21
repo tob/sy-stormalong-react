@@ -59,7 +59,6 @@ class MapContainer extends PureComponent {
             lat: currentLoc.lat,
             lng: currentLoc.lng
           }}
-
           >
           {articles}
         <InfoWindow
@@ -68,8 +67,7 @@ class MapContainer extends PureComponent {
             <div>
               <h1>{this.state.selectedPlace.name}</h1>
               <p>
-                {this.state.selectedPlace.date} -
-                <a href={'/articles/'+ this.state.selectedPlace.id}>Read more</a>
+                {this.state.selectedPlace.date} - <a href={'/articles/'+ this.state.selectedPlace.id}>Read more</a>
               </p>
             </div>
         </InfoWindow>
