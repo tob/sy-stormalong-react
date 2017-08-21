@@ -26,7 +26,9 @@ class Article extends PureComponent {
 
             <Card onTouchTap={() => { history.push('/articles/'+id) }}>
               <CardMedia
-                overlay={<CardTitle title={title} subtitle={date} />}
+                overlay={<CardTitle title={<FlatButton backgroundColor="#43e8c2"
+                overlayStyle="background: red"
+                label={<Link to={'/articles/'+id}>{title}</Link>} />} subtitle={date} />}
                 >
                 <img src={photo} alt="" className="cardImageBg"/>
               </CardMedia>
