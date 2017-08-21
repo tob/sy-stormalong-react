@@ -39,7 +39,7 @@ class MapContainer extends PureComponent {
 
   render() {
 
-    const currentLoc = this.props.articles[5]
+    const currentLoc = this.props.articles[0]
     const articles = this.props.articles.map((article, index) => {
       return (
         <Marker key={index} onClick={this.onMarkerClick}

@@ -16,12 +16,12 @@ export class FeatPage extends PureComponent {
         wrap
         w={1}
         style={{ height: '100%' }}
-        justify='space-around' >
-        <Box w={[ 1, 1/2, 1/2]}  >
+        justify='center' >
+        <Box w={[ 1, 1/2, 1/2]}   >
           <h3>{title}</h3>
           {renderHTML(body)}
         </Box>
-        <Box w={[ 1, 1/2, 1/2]} >
+        <Box w={[ 1, 1/2, 1/2]}>
           <Gallery images={photos} />
         </Box>
       </Flex>
