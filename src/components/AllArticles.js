@@ -10,21 +10,7 @@ class AllArticles extends PureComponent {
     fetchArticles: PropTypes.func.isRequired
   }
 
-  // componentWillMount() {
-  //   this.props.fetchArticles()
-  // }
-
-
   render() {
-
-    // const aboutUsArr = this.props.articles.filter((article) => {return article.title === "About us"})
-    //
-    // const aboutUs = aboutUsArr.map((article) => {
-    //   return (
-    //          <FeatArt article={article} />
-    //   )
-    // });
-
      const articles = this.props.articles.map((article, index) => {
        return (
          <Box key={index} w={[ 1, 1/2, 1/3]} >

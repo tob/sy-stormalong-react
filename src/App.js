@@ -8,8 +8,10 @@ import { connect } from 'react-redux'
 import fetchArticles from './actions/fetch'
 import FeatPage from './components/FeatPage'
 import Footer from './components/Footer'
+import BottomTabs from './components/Tabs'
 import { Flex, Box } from 'reflexbox'
 import './App.css'
+
 
 class App extends Component {
   static childContextTypes = {
@@ -47,20 +49,11 @@ class App extends Component {
           <div className="App">
             <Navigation title="Stormalong"/>
             { this.props.children }
-            <MapContainer articles={ articles }/>
-            <Flex
-              wrap
-              w={1}
-              style={{ height: '100%' }}
-              justify='space-around' >
-                <Box w={[ 1, 1/2, 1/2]} >
-                <FeatPage article={ this.findFeatArticle('About us') } />
-                </Box>
-                <Box w={[ 1, 1/2, 1/2]} >
-                <FeatPage article={ this.findFeatArticle('Over het schip') } />
-                </Box>
-              </Flex>
-              <Footer />
+
+            <BottomTabs articles={articles}
+              tab1={<FeatPage article={ this.findFeatArticle('About us') } />}
+              tab2={<FeatPage article={ this.findFeatArticle('Over het schip') } />}
+              tab3={<MapContainer articles={ articles }/>} />
           </div>
         </MuiThemeProvider>
       )
