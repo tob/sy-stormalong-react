@@ -41,11 +41,10 @@ render() {
           key={photo.id}
           cols={photo.featured ? 2 : 1}
           rows={photo.featured ? 2 : 1}
-          title={photo.title}
           onTouchTap={this.handleToggle.bind(this, photo)}
-          subtitle={<span>by <b>{photo.image.description}</b></span>}
+          title={photo.featured ? photo.description : null}
         >
-          <img src={photo.src} alt={photo.image.description} />
+          <img src={photo.src} alt={photo.description} />
         </GridTile>
 
       ))}

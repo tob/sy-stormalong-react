@@ -1,7 +1,7 @@
 body{
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
   background-color: #f6f6f6;
-  margin: 0;
+  margin: 0 auto;
   padding: 0 10px;
 }
 
@@ -22,5 +22,9 @@ span a{
 }
 
 .navbarLogo {
- width: 65px
+ width: 65px;
+}
+
+h1 {
+  text-align: center;
 }

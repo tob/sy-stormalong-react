@@ -17,7 +17,7 @@ export class FeatPage extends PureComponent {
         w={1}
         style={{ height: '100%' }}
         justify='center' >
-        <Box w={[ 1, 1/2, 1/2]}   >
+        <Box w={[ 1, 1/2, 1/2]} px={1}  >
           <h3>{title}</h3>
           {renderHTML(body)}
         </Box>

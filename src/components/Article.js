@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import {Card, CardMedia, CardTitle} from 'material-ui/Card';
-import { replace } from 'react-router-redux'
 import { history } from '../store'
 
 const PLACEHOLDER = "http://res-3.cloudinary.com/lorenzocloudinary/image/upload/v1503154951/xfi47gmmraieh7tlrszj.jpg"
@@ -9,10 +8,6 @@ const PLACEHOLDER = "http://res-3.cloudinary.com/lorenzocloudinary/image/upload/
 class Article extends PureComponent {
   static PropTypes = {
     mediaStyle: PropTypes.object.isRequired
-  }
-
-  goToArtPage(id) {
-    replace( `/articles/${id}` )
   }
 
    render() {

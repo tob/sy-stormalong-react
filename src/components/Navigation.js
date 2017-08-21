@@ -14,7 +14,11 @@ class Navigation extends PureComponent {
     return (
       <AppBar
         title="Stormalong"
-        iconElementLeft={<IconButton onClick={ this.goHome }><img alt='main-navbar' src={navbarImage} className='navbarLogo' /></IconButton>}/>
+        titleStyle='margin-left:10px;'
+        iconElementLeft={
+          <IconButton onClick={ this.goHome }>
+            <img alt='main-navbar' src={navbarImage} className='navbarLogo' />
+          </IconButton>}/>
     )
   }
 
