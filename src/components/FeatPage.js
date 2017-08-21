@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import renderHTML from 'react-render-html';
-import Gallery from './_gallery'
 import { Flex, Box } from 'reflexbox'
+import Gallery from './Gallery'
 
 export class FeatPage extends PureComponent {
 
