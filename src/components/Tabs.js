@@ -9,14 +9,12 @@ import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
 import {Tabs, Tab} from 'material-ui/Tabs';
 // From https://github.com/oliviertassinari/react-swipeable-views
 import SwipeableViews from 'react-swipeable-views';
-import MapContainer from './MapContainer'
+import MapContainer from './mapcontainer'
 
 
 const styles = {
   headline: {
     fontSize: 24,
-    paddingTop: 16,
-    marginBottom: 12,
     fontWeight: 400,
   },
   slide: {
@@ -29,7 +27,7 @@ export default class BottomTabs extends PureComponent {
   constructor(props) {
       super(props);
       this.state = {
-        slideIndex: 1,
+        slideIndex: 2,
       };
     }
 

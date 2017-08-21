@@ -38,6 +38,7 @@ class MapContainer extends PureComponent {
   }
 
   render() {
+    const currentLoc = this.props.articles[0]
     const articles = this.props.articles.map((article, index) => {
 
       return (
@@ -62,6 +63,11 @@ class MapContainer extends PureComponent {
           onClick={this.onMapClicked}
           zoom={3}
           scrollwheel={false}
+          initialCenter={{
+            lat: currentLoc.lat,
+            lng: currentLoc.lng
+          }}
+
           >
           {articles}
         <InfoWindow

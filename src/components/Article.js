@@ -3,27 +3,9 @@ import PropTypes from 'prop-types'
 import {Card, CardActions, CardMedia, CardTitle} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import { Link } from 'react-router'
-
 import { replace } from 'react-router-redux'
+import store, { history } from '../store'
 
-// const styles = {
-//   root: {
-//     display: 'flex',
-//     flexWrap: 'wrap',
-//     justifyContent: 'space-around',
-//   },
-//   gridList: {
-//     display: 'flex',
-//     flexWrap: 'nowrap',
-//     overflowX: 'auto',
-//   },
-//   titleStyle: {
-//     color: 'rgb(0, 188, 212)',
-//   },
-//   image:{
-//     height: '120px'
-//   }
-// };
 
 class Article extends PureComponent {
   static PropTypes = {
@@ -42,16 +24,12 @@ class Article extends PureComponent {
 
       return (
 
-            <Card>
+            <Card onTouchTap={() => { history.push('/articles/'+id) }}>
               <CardMedia
                 overlay={<CardTitle title={title} subtitle={date} />}
                 >
                 <img src={photo} alt="" className="cardImageBg"/>
               </CardMedia>
-              <CardActions>
-                 <FlatButton
-                 label={<Link to={'/articles/'+id}>Read more</Link>} />
-              </CardActions>
             </Card>
         )
       }

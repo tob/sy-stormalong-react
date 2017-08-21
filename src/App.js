@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import muiTheme from './assets/styles/theme';
 import Navigation from './components/Navigation'
-import MapContainer from './components/MapContainer'
+import MapContainer from './components/mapcontainer'
 import { connect } from 'react-redux'
 import fetchArticles from './actions/fetch'
 import FeatPage from './components/FeatPage'
@@ -48,6 +48,7 @@ class App extends Component {
         <MuiThemeProvider muiTheme={muiTheme}>
           <div className="App">
             <Navigation title="Stormalong"/>
+
             { this.props.children }
 
             <BottomTabs articles={articles}
