@@ -13,8 +13,7 @@ class Navigation extends PureComponent {
   render() {
     return (
       <AppBar
-        title="Stormalong"
-        titleStyle='margin-left:10px;'
+        title="Sy-Stormalong"
         iconElementLeft={
           <IconButton onClick={ this.goHome }>
             <img alt='main-navbar' src={navbarImage} className='navbarLogo' />
