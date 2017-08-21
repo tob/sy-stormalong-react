@@ -10,6 +10,7 @@ import FeatPage from './components/FeatPage'
 import { Flex, Box } from 'reflexbox'
 import './App.css'
 
+
 class App extends Component {
   static childContextTypes = {
     muiTheme: PropTypes.object.isRequired,
