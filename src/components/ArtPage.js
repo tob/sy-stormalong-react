@@ -48,7 +48,7 @@ export class ArticlePage extends PureComponent {
   }
 
   render() {
-    const { id, title, body } = this.props
+    const { id, title, body, date } = this.props
     if (!id) return null
 
     const photos = this.props.photos.length < 1 ? [PLACEHOLDER] : this.props.photos
@@ -70,6 +70,7 @@ export class ArticlePage extends PureComponent {
               <Box w={[ 1, 1/2, 1/3]} px={3}>
 
                 <h2>{title}</h2>
+                <p>{date}</p>
                 {renderHTML(body)}
 
               </Box>
