@@ -38,23 +38,18 @@ class MapContainer extends PureComponent {
   }
 
   render() {
+
+    const currentLoc = this.props.articles[0]
     const articles = this.props.articles.map((article, index) => {
-
       return (
-
         <Marker key={index} onClick={this.onMarkerClick}
                 name={article.title}
                 position= {{lat: article.lat, lng: article.lng}}/>
       )
-    });
+      });
 
-    if (!this.props.loaded) {
-      return (
-      <Card>
-        <iframe title='main-map' src="https://www.google.com/maps/d/u/2/embed?mid=15GH1TZoGMDVAMyHgr3TaBzfMiUA" width="100%" height="600"></iframe>
-      </Card>
-      )
-    }
+    if (!currentLoc) return null
+
     return (
       <Map
           options={"scrollwheel: false"}
@@ -62,6 +57,11 @@ class MapContainer extends PureComponent {
           onClick={this.onMapClicked}
           zoom={3}
           scrollwheel={false}
+          initialCenter={{
+            lat: currentLoc.lat,
+            lng: currentLoc.lng
+          }}
+
           >
           {articles}
         <InfoWindow

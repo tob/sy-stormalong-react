@@ -11,7 +11,9 @@ class AllArticles extends PureComponent {
   }
 
   render() {
-     const articles = this.props.articles.map((article, index) => {
+    const filtArticles = this.props.articles.filter((article) => {return article.title !== 'About us' && article.title !== 'Over het schip'})
+    console.log(filtArticles);
+     const articles = filtArticles.map((article, index) => {
        return (
          <Box key={index} w={[ 1, 1/2, 1/3]} >
               <Article key={index} article={article} />
@@ -25,7 +27,7 @@ class AllArticles extends PureComponent {
           wrap
           w={1}
           style={{ height: '100%' }}
-          justify='space-around' >
+          justify='left' >
                {articles}
         </Flex>
       </div>

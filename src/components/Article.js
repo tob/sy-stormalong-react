@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import {Card, CardActions, CardMedia, CardTitle} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import { Link } from 'react-router'
-
 import { replace } from 'react-router-redux'
+import store, { history } from '../store'
 
 
 class Article extends PureComponent {
@@ -24,7 +24,7 @@ class Article extends PureComponent {
 
       return (
 
-            <Card >
+            <Card onTouchTap={() => { history.push('/articles/'+id) }}>
               <CardMedia
                 overlay={<CardTitle title={<FlatButton backgroundColor="#43e8c2"
                 overlayStyle="background: red"
@@ -32,7 +32,6 @@ class Article extends PureComponent {
                 >
                 <img src={photo} alt="" className="cardImageBg"/>
               </CardMedia>
-
             </Card>
         )
       }
