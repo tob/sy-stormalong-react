@@ -24,6 +24,16 @@ const styles = {
   }
 };
 
+const PLACEHOLDER = {
+  image: {
+    image: {
+      url: "http://res-3.cloudinary.com/lorenzocloudinary/image/upload/v1503154951/xfi47gmmraieh7tlrszj.jpg",
+    }
+  },
+  src: "http://res-3.cloudinary.com/lorenzocloudinary/image/upload/v1503154951/xfi47gmmraieh7tlrszj.jpg",
+  description: "A beautiful view!",
+  featured: true,
+}
 
 var ReactDisqusThread = require('react-disqus-thread')
 
@@ -37,12 +47,11 @@ export class ArticlePage extends PureComponent {
     // this.props.fetchArticles()
   }
 
-
   render() {
-
-    const { id, title, body, photos } = this.props
+    const { id, title, body } = this.props
     if (!id) return null
 
+    const photos = this.props.photos.length < 1 ? [PLACEHOLDER] : this.props.photos
 
     return(
         <div>
@@ -81,10 +90,7 @@ export class ArticlePage extends PureComponent {
                   </GridList>
               </Box>
             </Flex>
-
-
           </div>
-
         </div>
        )
       }
