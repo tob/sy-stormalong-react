@@ -1,11 +1,10 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import {Card, CardActions, CardMedia, CardTitle} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
-import { Link } from 'react-router'
+import {Card, CardMedia, CardTitle} from 'material-ui/Card';
 import { replace } from 'react-router-redux'
-import store, { history } from '../store'
+import { history } from '../store'
 
+const PLACEHOLDER = "http://res-3.cloudinary.com/lorenzocloudinary/image/upload/v1503154951/xfi47gmmraieh7tlrszj.jpg"
 
 class Article extends PureComponent {
   static PropTypes = {
@@ -17,18 +16,16 @@ class Article extends PureComponent {
   }
 
    render() {
-     var title = this.props.article.title;
-     var date = this.props.article.date;
-     const id = this.props.article.id;
-     var photo = this.props.article.photos.length < 1 ? "http://lorempixel.com/400/400/nature/" : this.props.article.photos[0].src
+     const { title, date, id } = this.props.article
+     const photo = this.props.article.photos.length < 1
+        ? PLACEHOLDER
+        : this.props.article.photos[0].src
 
       return (
 
             <Card onTouchTap={() => { history.push('/articles/'+id) }}>
               <CardMedia
-                overlay={<CardTitle title={<FlatButton backgroundColor="#43e8c2"
-                overlayStyle="background: red"
-                label={<Link to={'/articles/'+id}>{title}</Link>} />} subtitle={date} />}
+                overlay={<CardTitle title={title} subtitle={date} />}
                 >
                 <img src={photo} alt="" className="cardImageBg"/>
               </CardMedia>
