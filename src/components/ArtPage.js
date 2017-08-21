@@ -35,7 +35,6 @@ export class ArticlePage extends PureComponent {
 
   componentWillMount(){
     // this.props.fetchArticles()
-    console.log(this.props)
   }
 
 
@@ -92,8 +91,6 @@ export class ArticlePage extends PureComponent {
 }
 
 const mapStateToProps = ({ articles },{ params }) => {
-  console.log(params);
-
   const article = articles.reduce((prev, next) => {
     if (next.id === parseInt(params.articleId,10)) {
       return next

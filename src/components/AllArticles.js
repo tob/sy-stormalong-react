@@ -12,7 +12,6 @@ class AllArticles extends PureComponent {
 
   render() {
     const filtArticles = this.props.articles.filter((article) => {return article.title !== 'About us' && article.title !== 'Over het schip'})
-    console.log(filtArticles);
      const articles = filtArticles.map((article, index) => {
        return (
          <Box key={index} w={[ 1, 1/2, 1/3]} >

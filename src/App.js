@@ -7,9 +7,7 @@ import MapContainer from './components/mapcontainer'
 import { connect } from 'react-redux'
 import fetchArticles from './actions/fetch'
 import FeatPage from './components/FeatPage'
-import Footer from './components/Footer'
 import BottomTabs from './components/Tabs'
-import { Flex, Box } from 'reflexbox'
 import './App.css'
 
 

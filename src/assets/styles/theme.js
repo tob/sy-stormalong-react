@@ -20,11 +20,11 @@ export const palette = {
   primary1Color: StormBlue,
   primary2Color: white,
   primary3Color: white,
-  accent1Color: StormPink,
+  accent1Color: darkGrey,
   textColor: StormBlue,
   alternateTextColor: white,
   canvasColor: StormBlue,
-  borderColor: StormPink,
+  borderColor: darkGrey,
   disabledColor: StormPink
 }
 

@@ -1,9 +1,5 @@
 import React, { PureComponent } from 'react'
-import {Card,} from 'material-ui/Card';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-
-
-
 
 class MapContainer extends PureComponent {
 
@@ -44,6 +40,8 @@ class MapContainer extends PureComponent {
       return (
         <Marker key={index} onClick={this.onMarkerClick}
                 name={article.title}
+                date={article.date}
+                id={article.id}
                 position= {{lat: article.lat, lng: article.lng}}/>
       )
       });
@@ -69,6 +67,10 @@ class MapContainer extends PureComponent {
           visible={this.state.showingInfoWindow}>
             <div>
               <h1>{this.state.selectedPlace.name}</h1>
+              <p>
+                {this.state.selectedPlace.date} -
+                <a href={'/articles/'+ this.state.selectedPlace.id}>Read more</a>
+              </p>
             </div>
         </InfoWindow>
       </Map>
