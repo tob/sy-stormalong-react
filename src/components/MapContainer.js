@@ -2,7 +2,11 @@ import React, { PureComponent } from 'react'
 import {Card,} from 'material-ui/Card';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
+
+
+
 class MapContainer extends PureComponent {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -52,9 +56,12 @@ class MapContainer extends PureComponent {
       )
     }
     return (
-      <Map google={this.props.google}
+      <Map
+          options={"scrollwheel: false"}
+          google={this.props.google}
           onClick={this.onMapClicked}
           zoom={3}
+          scrollwheel={false}
           >
           {articles}
         <InfoWindow

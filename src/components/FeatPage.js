@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import renderHTML from 'react-render-html';
 import Gallery from './_gallery'
+import { Flex, Box } from 'reflexbox'
 
 export class FeatPage extends PureComponent {
 
@@ -13,16 +14,26 @@ export class FeatPage extends PureComponent {
   // }
 
   render() {
-    const { id, title, body, photos } = this.props.article
+    const { id, title, body, photos } = this.props
     if (!id) return null
 
     return(
       <div>
-        <p>{title}</p>
-        {renderHTML(body)}
-        <div>
-          <Gallery images={photos} />
-        </div>
+        <Flex
+          wrap
+          w={1}
+          style={{ height: '100%' }}
+          justify='space-around'
+          align='center' >
+            <Box w={1} p={2}
+            m={1} >
+              <h3>{title}</h3>
+              {renderHTML(body)}
+            </Box>
+            <Box w={1} >
+              <Gallery images={photos} />
+          </Box>
+        </Flex>
       </div>
      )
   }
