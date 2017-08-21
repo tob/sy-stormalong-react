@@ -17,9 +17,6 @@ const styles = {
     fontSize: 24,
     fontWeight: 400,
   },
-  slide: {
-    padding: 10,
-  },
 };
 
 
@@ -38,14 +35,17 @@ export default class BottomTabs extends PureComponent {
     };
 
     render() {
+
+      if (!this.props.articles) return null
+      debugger
       return (
         <div>
           <Tabs
             onChange={this.handleChange}
             value={this.state.slideIndex}
           >
-            <Tab icon={<IconPeople />} label="About Us" value={0} />
-            <Tab icon={<IconDirectionsBoat />} label="The Ship" value={1} />
+            <Tab icon={<IconPeople />} label={this.props.tab1.props.article.title} value={0} />
+            <Tab icon={<IconDirectionsBoat />} label={this.props.tab2.props.article.title} value={1} />
             <Tab icon={<IconLocationOn />} label="Current position" value={2} />
           </Tabs>
           <SwipeableViews
@@ -55,10 +55,10 @@ export default class BottomTabs extends PureComponent {
             <div>
               {this.props.tab1}
             </div>
-            <div style={styles.slide}>
+            <div>
               {this.props.tab2}
             </div>
-            <div style={styles.slide}>
+            <div>
               {this.props.tab3}
             </div>
           </SwipeableViews>
