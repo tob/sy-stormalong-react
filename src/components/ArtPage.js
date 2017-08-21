@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import renderHTML from 'react-render-html';
 import { Flex, Box } from 'reflexbox'
-import Gallery from './_gallery'
+import Gallery from './Gallery'
 import {GridList} from 'material-ui/GridList';
 
 const styles = {

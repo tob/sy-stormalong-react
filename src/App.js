@@ -7,6 +7,7 @@ import MapContainer from './components/MapContainer'
 import { connect } from 'react-redux'
 import fetchArticles from './actions/fetch'
 import FeatPage from './components/FeatPage'
+import Footer from './components/Footer'
 import { Flex, Box } from 'reflexbox'
 import './App.css'
 
@@ -59,6 +60,7 @@ class App extends Component {
                 <FeatPage article={ this.findFeatArticle('Over het schip') } />
                 </Box>
               </Flex>
+              <Footer />
           </div>
         </MuiThemeProvider>
       )
