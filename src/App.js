@@ -7,7 +7,7 @@ import MapContainer from './components/mapcontainer'
 import { connect } from 'react-redux'
 import fetchArticles from './actions/fetch'
 import FeatPage from './components/FeatPage'
-import Footer from './components/Footer'
+// import Footer from './components/Footer'
 import BottomTabs from './components/Tabs'
 import './App.css'
 
@@ -46,13 +46,12 @@ class App extends Component {
       return (
         <MuiThemeProvider muiTheme={muiTheme}>
           <div className="App">
-            <Navigation title="Stormalong"/>
+            <Navigation title="Sy-Stormalong"/>
             <BottomTabs articles={articles} secondary={true}
               tab1={ this.props.children }
-              tab2={<FeatPage article={ this.findFeatArticle('About us') } />}
+              tab2={<FeatPage article={ this.findFeatArticle('Over ons') } />}
               tab3={<FeatPage article={ this.findFeatArticle('Over het schip') } />}
               tab4={<MapContainer articles={ articles }/>} />
-            <Footer />
           </div>
 
         </MuiThemeProvider>

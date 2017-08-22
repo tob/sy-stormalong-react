@@ -10,6 +10,10 @@ class Article extends PureComponent {
     mediaStyle: PropTypes.object.isRequired
   }
 
+  componentDidMount () {
+    window.scroll(0,0)
+  }
+
    render() {
      const { title, date, id } = this.props.article
      const photo = this.props.article.photos.length < 1
@@ -18,7 +22,7 @@ class Article extends PureComponent {
 
       return (
 
-            <Card onTouchTap={() => { history.push('/articles/'+id) }}>
+            <Card onTouchTap={() => { history.push('/articles/'+id); window.scroll(0,0) }}>
               <CardMedia
                 overlay={<CardTitle title={title} subtitle={date} />}
                 >

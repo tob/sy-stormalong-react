@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300');
+
 body{
-  font-family: 'Advent Pro', Helvetica, Arial, sans-serif;
+  font-family: 'Quicksand', sans-serif;
   background-color: #f6f6f6;
   margin: 0;
   padding: 0;
@@ -11,7 +13,7 @@ body{
 }
 
 .featHomeImage   {
-  height: 500px;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -25,10 +27,25 @@ span a{
   width: 65px;
 }
 
+h1, h2, h3, h4, p, a, span {
+  font-family: 'Quicksand', sans-serif;
+}
+
 h1 {
   text-align: center;
 }
 
 h2 {
   margin: 0;
+}
+
+div#main-title {
+  text-align: center;
+  font-size: 3rem;
+}
+
+div#map-container {
+  max-height: 200px !important;
+  height: 100%;
+  display: block;
 }
