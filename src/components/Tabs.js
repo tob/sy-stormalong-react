@@ -47,7 +47,6 @@ export default class BottomTabs extends PureComponent {
             <Tab icon={<IconDashboard />} label="Logboek" value={0} />
             <Tab icon={<IconPeople />} label={this.props.tab2.props.article.title} value={1} />
             <Tab icon={<IconDirectionsBoat />} label={this.props.tab3.props.article.title} value={2} />
-            <Tab icon={<IconLocationOn />} label="Kaart" value={3} />
           </Tabs>
           <SwipeableViews
             index={this.state.slideIndex}
@@ -61,9 +60,6 @@ export default class BottomTabs extends PureComponent {
             </div>
             <div>
               {this.props.tab3}
-            </div>
-            <div id='map-container'>
-              {this.props.tab4}
             </div>
           </SwipeableViews>
         </div>

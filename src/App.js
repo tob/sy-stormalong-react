@@ -51,7 +51,8 @@ class App extends Component {
               tab1={ this.props.children }
               tab2={<FeatPage article={ this.findFeatArticle('Over ons') } />}
               tab3={<FeatPage article={ this.findFeatArticle('Over het schip') } />}
-              tab4={<MapContainer articles={ articles }/>} />
+             />
+            <MapContainer articles={ articles }/>
           </div>
 
         </MuiThemeProvider>
