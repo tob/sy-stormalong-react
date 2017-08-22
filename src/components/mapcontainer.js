@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import { history } from '../store'
 
 class MapContainer extends PureComponent {
 
@@ -62,13 +63,13 @@ class MapContainer extends PureComponent {
           >
           {articles}
         <InfoWindow
+          enableEventPropagation={true}
+          onTouchTap={() => { history.push('/articles/'+this.state.selectedPlace.id) }}
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}>
             <div>
               <h1>{this.state.selectedPlace.name}</h1>
-              <p>
-                {this.state.selectedPlace.date} - <a href={'/articles/'+ this.state.selectedPlace.id}>Read more</a>
-              </p>
+              <p>{this.state.selectedPlace.date}</p>
             </div>
         </InfoWindow>
       </Map>
