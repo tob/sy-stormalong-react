@@ -4,10 +4,20 @@ import { connect } from 'react-redux'
 import Article from './Article'
 import fetchArticles from '../actions/fetch'
 import {Flex, Box } from 'reflexbox'
+import FeatArt from './FeatArt'
+import FeatPage from './FeatPage'
 
 class AllArticles extends PureComponent {
   static PropTypes = {
     fetchArticles: PropTypes.func.isRequired
+  }
+
+  findFeatArticle(artTitle) {
+    const { articles } = this.props
+    const featArticle = articles.reduce((prev, next) => {
+    if (next.title === artTitle) { return next }
+    return prev }, {})
+    return featArticle
   }
 
   render() {
@@ -20,8 +30,13 @@ class AllArticles extends PureComponent {
        )
      });
 
+
+
+     if (!articles) return null
+
     return(
       <div>
+        <FeatArt article={ this.findFeatArticle('STORMALONG') } />
         <Flex
           wrap
           w={1}
