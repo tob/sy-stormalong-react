@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import renderHTML from 'react-render-html';
+import renderHTML from 'react-render-html'
 import { Flex, Box } from 'reflexbox'
 import Gallery from './Gallery'
-import {GridList} from 'material-ui/GridList';
+import {GridList} from 'material-ui/GridList'
+import { Helmet } from 'react-helmet'
 
 const styles = {
   root: {
@@ -55,7 +56,9 @@ export class ArticlePage extends PureComponent {
 
     return(
         <div>
-
+          <Helmet>
+            <title>{title} | Sy-Stormalong</title>
+          </Helmet>
           <div style={styles.root}>
           <Flex
             wrap
