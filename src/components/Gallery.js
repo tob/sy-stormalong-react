@@ -35,10 +35,10 @@ render() {
     <GridList
       cellHeight={200}
       style={styles.gridList}  >
-      {this.props.images.map((photo) => (
+      {this.props.images.map((photo, index) => (
 
         <GridTile
-          key={photo.id}
+          key={index}
           cols={photo.featured ? 2 : 1}
           rows={photo.featured ? 2 : 1}
           onTouchTap={this.handleToggle.bind(this, photo)}

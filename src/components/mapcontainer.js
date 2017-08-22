@@ -50,7 +50,7 @@ class MapContainer extends PureComponent {
 
     return (
       <Map
-          options={"scrollwheel: false"}
+          options={"scrollwheel: false; height: 500px"}
           google={this.props.google}
           onClick={this.onMapClicked}
           zoom={3}

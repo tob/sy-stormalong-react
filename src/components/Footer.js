@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { Link } from 'react-router'
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import Paper from 'material-ui/Paper'
+// import Paper from 'material-ui/Paper'
 
 
 export default class Footer extends PureComponent {

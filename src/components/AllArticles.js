@@ -5,7 +5,6 @@ import Article from './Article'
 import fetchArticles from '../actions/fetch'
 import {Flex, Box } from 'reflexbox'
 import FeatArt from './FeatArt'
-import FeatPage from './FeatPage'
 
 class AllArticles extends PureComponent {
   static PropTypes = {
@@ -21,7 +20,9 @@ class AllArticles extends PureComponent {
   }
 
   render() {
-    const filtArticles = this.props.articles.filter((article) => {return article.title !== 'About us' && article.title !== 'Over het schip'})
+    const filtArticles = this.props.articles.filter((article) => {
+      return article.title !== 'Over ons' && article.title !== 'Over het schip' && article.title !== 'Sy-Stormalong'
+    })
      const articles = filtArticles.map((article, index) => {
        return (
          <Box key={index} w={[ 1, 1/2, 1/3, 1/4]} >
@@ -30,13 +31,11 @@ class AllArticles extends PureComponent {
        )
      });
 
-
-
      if (!articles) return null
 
     return(
       <div>
-        <FeatArt article={ this.findFeatArticle('STORMALONG') } />
+        <FeatArt article={ this.findFeatArticle('Sy-Stormalong') } />
         <Flex
           wrap
           w={1}

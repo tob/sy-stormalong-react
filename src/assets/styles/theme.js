@@ -10,7 +10,7 @@ export const darkGrey     = '#757575'
 export const grey         = '#CED3DC'
 export const grey50       = 'rgba(222, 222, 222, 0.5)'
 export const grey30       = 'rgba(222, 222, 222, 0.7)'
-export const StormBlue    = '#43e8c2'
+export const StormBlue    = '#65b1bc'
 export const StormPink    ='#FF4A67'
 export const StormYellow  = '#FF8F4A'
 
